@@ -116,8 +116,8 @@ A 3-bit decoder is designed to act as a switch with its corresponding output con
 
 ## Full Logic Gate Implementation
 
-![](img/ALU.png)
-![](img/alu-subcircuit.jpg)
+![](img/ALU-overview.png)
+![](img/ALU.jpg)
 
 ## System Verilog
 
