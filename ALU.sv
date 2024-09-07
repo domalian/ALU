@@ -1,11 +1,11 @@
 // ALU Design
 module ALU (output reg [3:0] F,
-			      output reg Z,
+            output reg Z,
             output reg V,
             output reg C,
-  			    input wire Xin,
+            input wire Xin,
             input wire [3:0] A,
-			      input wire [3:0] B,
+            input wire [3:0] B,
             input wire [2:0] S);
   integer i;
   
