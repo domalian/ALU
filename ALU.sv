@@ -1,13 +1,12 @@
 // ALU Design
 module ALU (output reg [3:0] F,
-			output reg Z,
+			      output reg Z,
             output reg V,
             output reg C,
-  			input wire Xin,
+  			    input wire Xin,
             input wire [3:0] A,
-			input wire [3:0] B,
-            input wire [2:0] S
-                 );
+			      input wire [3:0] B,
+            input wire [2:0] S);
   integer i;
   
   always @ (A, B, S, Xin, Z) begin
@@ -36,8 +35,15 @@ module ALU (output reg [3:0] F,
   
   always @ (Z, V, F, C, S, A, B, Xin) begin
     Z = (F == 4'b0000);
-    V = (((A + A) > 15) && S == 0) || ((A%2 == 1) && S == 1) || (((A*B) > 15) && S == 2) || ((A+B+Xin > 15) && S == 3) || ((A-B+Xin > 15) && (S == 4)) || ((B-A+Xin > 15) && (S == 5)) ;
-    C = ((A+B+Xin > 15) && S == 3) || ((A-B+Xin > 15) && (S == 4)) || ((B-A+Xin > 15) && (S == 5));
+    V = (((A + A) > 15) && S == 0)   || 
+        ((A%2 == 1)     && S == 1)   || 
+        (((A*B) > 15)   && S == 2)   || 
+        ((A+B+Xin > 15) && S == 3)   || 
+        ((A-B+Xin > 15) && (S == 4)) || 
+        ((B-A+Xin > 15) && (S == 5));
+    C = ((A+B+Xin > 15) && S == 3)   || 
+        ((A-B+Xin > 15) && (S == 4)) || 
+        ((B-A+Xin > 15) && (S == 5));
   end
   
 endmodule
